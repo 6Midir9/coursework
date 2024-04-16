@@ -1,0 +1,12 @@
+{% extends 'ads/base.html' %}
+
+{% block content %}
+    <p>Каталоги</p>
+    <ul>
+        {% for ad in ads %}
+            <li><a href="{% url 'ads:ads' ad.id %}"> {{ ad }}</a></li>
+        {% empty %}
+            <li> Немає каталогів </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

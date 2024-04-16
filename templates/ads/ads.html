@@ -1,0 +1,18 @@
+{% extends 'ads/base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Розділ: {{ ad }}</h1>
+    <ul>
+        {% for ad in entries %}
+        <h1>{{ ad.title }}</h1>
+        <p><strong>Цена:</strong> {{ ad.price }} руб.</p>
+        <p><strong>Статус:</strong> {{ ad.get_status_display }}</p>
+        <p><strong>Описание:</strong> {{ ad.description }}</p>
+        <p><strong>Дата публикации:</strong> {{ ad.pub_date }}</p>
+        <p>{{ ad.image }}</p>
+        {% empty %}
+            <li>Тут ще нічого не має</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
